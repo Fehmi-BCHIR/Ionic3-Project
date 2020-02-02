@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong> Inscription Medecin</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn login auth-page">
+
+
+  <mbsc-form [options]="formSettings">
+    <form novalidate #templForm="ngForm">
+      <div class="mbsc-form-group">
+        <!--     <div class="mbsc-form-group-title">Sign Up - Template driven form</div>-->
+
+
+        <mbsc-dropdown name="gouvernorat" [(ngModel)]="gouvernorat" #gov="ngModel" required icon="earth" [error]="gov.invalid && templSubmitted"
+                       [errorMessage]="getErrorMessage('gouvernorat', 'templ')">
+          <option value="Sousse" checked="true">Sousse</option>
+          <option value="Monastir">Monastir</option>
+          <option value="Sfax">Sfax</option>
+          <option value="Mahdia">Mahdia</option>
+          <option value="Tunis">Tunis</option>
+          <option value="Kairouan">Kairouan</option>
+          <option value="Béja">Béja</option>
+          <option value="Ben Arous">Ben Arous</option>
+          <option value="Bizerte">Bizerte</option>
+          <option value="Gabès">Gabès</option>
+          <option value="Gafsa">Gafsa</option>
+          <option value="Jendouba">Jendouba</option>
+          <option value="Ariana">Ariana</option>
+          <option value="Kasserine">Kasserine</option>
+          <option value="Manouba">Manouba</option>
+          <option value="Médenine">Médenine</option>
+          <option value="Nabeul">Nabeul</option>
+          <option value="Siliana">Siliana</option>
+          <option value="Sidi Bouzid">Sidi Bouzid</option>
+          <option value="Kébili">Kébili</option>
+          <option value="Kef">Kef </option>
+          <option value="Tataouine">Tataouine</option>
+          <option value="Tozeur">Tozeur</option>
+          <option value="Zaghouan">Zaghouan</option>
+        </mbsc-dropdown>
+
+
+        <mbsc-dropdown name="specialite" [(ngModel)]="specialite" #spec="ngModel" required icon="meteo-snowflake" [error]="spec.invalid && templSubmitted"
+                       [errorMessage]="getErrorMessage('specialite', 'templ')">
+          <option value="Cardiologie" checked="true">Cardiologie</option>
+          <option value="Dermatologie">Dermatologie</option>
+          <option value="Orthodontie">Orthodontie</option>
+          <option value="Endocrinologie">Endocrinologie</option>
+          <option value="Gastrologie">Gastrologie</option>
+          <option value="Gynecologie">Gynecologie</option>
+          <option value="Maladies infectieuses">Maladies infectieuses</option>
+          <option value="Nephrologie">Nephrologie</option>
+          <option value="Neurologie">Neurologie</option>
+          <option value="Ophtalmologie">Ophtalmologie</option>
+          <option value="Orthopédie">Orthopédie</option>
+          <option value="Oncologie">Oncologie</option>
+          <option value="Généraliste">Généraliste</option>
+          <option value="Dentise">Dentiste</option>
+          <option value="Psychiatre">Psychiatre</option>
+        </mbsc-dropdown>
+
+
+        <mbsc-dropdown name="cnam" [(ngModel)]="cnam" #cnm="ngModel" required icon="office" [error]="cnm.invalid && templSubmitted"
+                       [errorMessage]="getErrorMessage('cnam', 'templ')">
+
+          <option value="oui" checked="true">Oui</option>
+          <option value="non">Non</option>
+
+
+        </mbsc-dropdown>
+
+        <!--<mbsc-input name="adresse" [(ngModel)]="adresse" #adr="ngModel"  [error]="adr.invalid && templSubmitted"-->
+                    <!--[errorMessage]="getErrorMessage('adresse', 'templ')"-->
+                    <!--placeholder="Adresse"  required icon="location">-->
+
+        <!--</mbsc-input>-->
+
+        <ion-item>
+          <ion-label floating>Enter Address</ion-label>
+          <ion-input name="adresse" [(ngModel)]="adresse" id="txtHome" type="text"></ion-input>
+        </ion-item>
+
+        <!--<mbsc-input name="longitude" [(ngModel)]="longitude" #long="ngModel"  [error]="long.invalid && templSubmitted"-->
+                    <!--[errorMessage]="getErrorMessage('longitude', 'templ')"-->
+                    <!--placeholder="Longitude"  required icon="location">-->
+
+        <!--</mbsc-input>-->
+
+        <!--<mbsc-input name="latitude" [(ngModel)]="latitude" #lat="ngModel"  [error]="lat.invalid && templSubmitted"-->
+                    <!--[errorMessage]="getErrorMessage('latitude', 'templ')"-->
+                    <!--placeholder="Latitude" required  icon="location">-->
+
+        <!--</mbsc-input>-->
+
+
+      </div>
+
+      <div class="mbsc-form-group mbsc-btn-group-block">
+        <mbsc-button  icon="camera" (click)="takePhoto()">Prendre une photo</mbsc-button>
+      </div>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 *ngFor="let photo of photos; let id = index">
+            <ion-card class="block">
+              <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+              <img [src]="photo" *ngIf="photo" />
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="mbsc-form-group mbsc-btn-group-block">
+        <mbsc-button  icon="checkmark" (click)=registermedc(gouvernorat,cnam,specialite,adresse,this._id)
+        [disabled]="templForm.invalid && templSubmitted">Terminer</mbsc-button>
+      </div>
+
+
+    </form>
+  </mbsc-form>
+
+  <mbsc-widget [options]="widgetSettings" #thanks="mobiscroll">
+    <h3>Thank you for registering</h3>
+    <p>You have successfully signed up as a user!</p>
+  </mbsc-widget>
+</ion-content>

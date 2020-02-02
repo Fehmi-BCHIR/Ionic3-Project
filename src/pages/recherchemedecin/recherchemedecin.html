@@ -1,0 +1,44 @@
+
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Recherche Medecin </strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar name="term" [(ngModel)]="term"></ion-searchbar>
+  <ion-card *ngFor="let u of list  | search: term">
+    <ion-item>
+      <!--<ion-avatar item-start>
+        <img src="../../assets/img/med.png">
+      </ion-avatar>-->
+      <h2 class="nomcolor">{{u.nom}} {{u.prenom}}</h2><br>
+      <p><ion-icon name="at" class="adresse-icon"></ion-icon> {{u.email}}</p>
+      <p><ion-icon name="cog" class="spec-icon"> </ion-icon>  {{u.specialite}}</p>
+      <p><ion-icon name="medical" class="cnam-icon"> </ion-icon> Cnam : {{u.cnam}}</p>
+      <p><ion-icon name="pin" class="locate-icon"></ion-icon>  {{u.gouvernorat}}</p>
+      <p><ion-icon name="call" class="custom-icon"> </ion-icon> {{u.tel}}</p>
+    </ion-item>
+    <ion-item>
+      <button ion-button  (click)="RDV(u._id)" icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Rendez-Vous
+      </button>
+      <button ion-button  (click)="medecinmap(u)" icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        map
+      </button>
+
+    </ion-item>
+    </ion-card>
+
+
+
+</ion-content>

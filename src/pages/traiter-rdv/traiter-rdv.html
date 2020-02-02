@@ -1,0 +1,41 @@
+
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Traiter RDV </strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngFor="let u of list">
+    <ion-item>
+      <!--<ion-avatar item-start>
+        <img src="../../assets/img/prisedeRDV2.png">
+      </ion-avatar>-->
+      Date du RDV :<h2 class="nomcolor">  {{u.dateRdv}}</h2><br>
+      Temps du RDV : <h2 class="nomcolor">{{u.tempsRdv}}</h2><br>
+      Jour du RDV : <h2 class="nomcolor"> {{u.jourRdv}}</h2><br>
+    </ion-item>
+    <ion-item>
+      <button ion-button  (click)="compterendu()" icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Confirmer RDV
+      </button>
+      <button ion-button (click)="AnnulerRDV()"  icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Annuler RDV
+      </button>
+    </ion-item>
+  </ion-card>
+
+
+
+</ion-content>
+

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Patient Page</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="auth-page">
+  <div class="login-content">
+    <!-- Logo -->
+    <div padding-horizontal text-center>
+      <div class="patient"></div>
+
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form">
+
+      <ion-item>
+        <ion-label floating >
+          Nom :
+        </ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating >
+          Prenom :
+        </ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          Date de Naissance :
+        </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate" name="myDate"></ion-datetime>
+      </ion-item>
+
+
+      <ion-item >
+        <ion-label floating>
+          Sexe :
+        </ion-label>
+        <ion-select [(ngModel)]="sexe" name="sexe">
+          <ion-option value="h" checked="true">Homme</ion-option>
+          <ion-option value="f">Femme</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          Telephone :
+        </ion-label>
+        <ion-input type="tel"  required></ion-input>
+      </ion-item>
+
+    </form>
+
+    <div>
+      <button ion-button  float-right color="marine">
+        Terminer
+      </button>
+
+    </div>
+
+  </div>
+</ion-content>
+
+

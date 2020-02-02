@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Rendez-Vous</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div padding-horizontal text-center>
+    <div class="RDV"></div>
+  </div>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label>Date du RDV :</ion-label>
+      <ion-datetime [(ngModel)]="dateRdv" name="dateRdv" displayFormat="DD/MM/YYYY"
+                    pickerFormat="DD MM YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Temps du RDV :</ion-label>
+      <ion-datetime  [(ngModel)]="tempsRdv" name="tempsRdv" displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Jour :
+      </ion-label>
+      <ion-select [(ngModel)]="jourRdv" name="jourRdv" >
+        <ion-option value="Lundi" checked="true">Lundi</ion-option>
+        <ion-option value="Mardi">Mardi</ion-option>
+        <ion-option value="Mercredi">Mercredi</ion-option>
+        <ion-option value="Jeudi">Jeudi</ion-option>
+        <ion-option value="Vendredi">Vendredi</ion-option>
+        <ion-option value="Samedi">Samedi</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <button ion-button (click)="demanderdv(dateRdv,tempsRdv,jourRdv)" float-right color="marine">
+    Terminer
+  </button>
+
+</ion-content>

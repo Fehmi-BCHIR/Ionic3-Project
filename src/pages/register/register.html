@@ -1,0 +1,53 @@
+<ion-content padding class="animated fadeIn login auth-page">
+  <mbsc-form [options]="formSettings">
+    <form novalidate #templForm="ngForm">
+      <div class="mbsc-form-group">
+        <!--     <div class="mbsc-form-group-title">Sign Up - Template driven form</div>-->
+        <mbsc-input name="nom" [(ngModel)]="nom" #user="ngModel" [error]="user.invalid && templSubmitted" [errorMessage]="getErrorMessage('nom', 'templ')"
+                    placeholder="Nom" minlength="2" required icon="user4">
+
+        </mbsc-input>
+
+        <mbsc-input name="prenom" [(ngModel)]="prenom" #user1="ngModel" [error]="user1.invalid && templSubmitted" [errorMessage]="getErrorMessage('prenom', 'templ')"
+                    placeholder="Prenom" minlength="2" required icon="user4">
+
+        </mbsc-input>
+
+        <mbsc-input name="email" [(ngModel)]="email" #mail="ngModel" type="email" placeholder="Email" required email icon="ion-ios7-email"
+                    [error]="mail.invalid && templSubmitted" [errorMessage]="getErrorMessage('email', 'templ')">
+
+        </mbsc-input>
+
+        <mbsc-input name="password" [(ngModel)]="password" #pass="ngModel" type="password" placeholder="Password" minlength="6" required icon="lock2"
+                    [error]="pass.invalid && templSubmitted" [errorMessage]="getErrorMessage('password', 'templ')">
+
+        </mbsc-input>
+
+        <mbsc-dropdown name="sexe" [(ngModel)]="sexe" #gen="ngModel" required icon="user4" [error]="gen.invalid && templSubmitted" [errorMessage]="getErrorMessage('sexe', 'templ')">
+         <!-- <option value="">Choisir SVP</option>-->
+          <option value="Femme">Femme</option>
+          <option value="Homme">Homme</option>
+        </mbsc-dropdown>
+
+        <mbsc-input name="tel" [(ngModel)]="tel" #b="ngModel" required minlength="8" [error]="b.invalid && templSubmitted" [errorMessage]="getErrorMessage('tel', 'templ')"
+                    placeholder="Telephone" icon="phone"></mbsc-input>
+
+        <mbsc-input  mbsc-date name="dateNaissance" [(ngModel)]="dateNaissance" #d="ngModel"  [error]="d.invalid && templSubmitted" [errorMessage]="getErrorMessage('dateNaissance', 'templ')"
+                     placeholder="Date de naissance" icon="calendar"></mbsc-input>
+      </div>
+      <div class="mbsc-form-group mbsc-btn-group-block">
+        <mbsc-button color="success" icon="checkmark" (click)= registerTempl(nom,prenom,email,password,tel,sexe,dateNaissance,this._id)  [disabled]="templForm.invalid && templSubmitted">S'inscrire</mbsc-button>
+      </div>
+     <!-- <div class="mbsc-form-group mbsc-btn-group-block">
+        <mbsc-button  icon="checkmark" (click)="login()" >J'ai un compte</mbsc-button>
+      </div>-->
+
+    </form>
+  </mbsc-form>
+
+
+  <mbsc-widget [options]="widgetSettings" #thanks="mobiscroll">
+    <h3>Thank you for registering</h3>
+    <p>You have successfully signed up as a user!</p>
+  </mbsc-widget>
+</ion-content>

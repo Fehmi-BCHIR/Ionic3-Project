@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Gérer Profil</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-list>
+
+      <ion-card>
+        <ion-label class="txt">Nom :</ion-label>
+        <ion-input type="text" [(ngModel)]="this.nom" name="nom" required></ion-input>
+      </ion-card>
+
+      <ion-card>
+        <ion-label class="txt">Prenom :</ion-label>
+        <ion-input type="text" [(ngModel)]="this.prenom" name="prenom" required></ion-input>
+      </ion-card>
+
+      <ion-card>
+        <ion-label class="txt">Email :</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="this.email" required></ion-input>
+      </ion-card>
+
+      <ion-card>
+        <ion-label class="txt">Ancien mdp :</ion-label>
+        <ion-input type="text" name="password" [(ngModel)]="this.password" required></ion-input>
+      </ion-card>
+
+      <ion-card>
+        <ion-label class="txt">  Nouveau mdp : </ion-label>
+        <ion-input type="text" name="newpassword" [(ngModel)]="this.newpassword" required></ion-input>
+      </ion-card>
+
+    </ion-list>
+    <button class="colorbutton" color="secondary"  ion-button block
+            (click)="updateProfil(this.id,this.nom,this.prenom,this.email,this.password,this.newpassword)">Modifier
+    </button>
+  </form>
+</ion-content>

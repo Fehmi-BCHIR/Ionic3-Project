@@ -1,0 +1,24 @@
+
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Pharmacie Map</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label floating>Enter Address</ion-label>
+    <ion-input id="txtHome" type="text"></ion-input>
+  </ion-item>
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+    <agm-marker *ngFor="let t of test" [latitude]="t.latitude" [longitude]="t.longitude"></agm-marker>
+  </agm-map>
+</ion-content>
+

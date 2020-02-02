@@ -1,0 +1,59 @@
+<ion-menu side="left" id="authenticated" [content]="content">
+  <ion-header>
+    <ion-toolbar class="user-profile">
+
+      <ion-grid>
+        <ion-row>
+          <!--<ion-col col-4>
+              <div class="user-avatar">
+                <img src="../assets/img/me1.png">
+              </div>
+          </ion-col>-->
+         <ion-col padding-top col-8>
+            <h2 ion-text class="no-margin bold text-white">
+{{this.nom}} &nbsp; {{this.prenom}}
+            </h2>
+           <span ion-text color="light"></span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row no-padding class="other-data">
+          <!--<ion-col no-padding class="column">
+            <button ion-button icon-left small full color="light" menuClose disabled>
+              <ion-icon name="contact"></ion-icon>
+              Edit Profile
+            </button>
+          </ion-col>-->
+
+
+          <ion-col no-padding class="column">
+            <button ion-button icon-left small full color="marine" menuClose (click)="logout1()">
+              <ion-icon name="log-out"></ion-icon>
+              Déconnexion
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content color="marine">
+
+    <button ion-button icon-left small full color="marine" menuClose (click)="passermedecin()">
+      <ion-icon name="user"></ion-icon>
+      Passer Medecin
+    </button>
+
+    <ion-list class="user-list">
+      <button ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
+        <ion-icon item-left [name]="menuItem.icon" color="marine"></ion-icon>
+        <span ion-text color="marine">{{menuItem.title}}</span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

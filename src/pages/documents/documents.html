@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Compte Rendu</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-textarea class="color" placeholder="Description" style="width:100%; padding: 10px; margin-top: 3px;" cols="30" rows="20"
+                  [(ngModel)]="note" name="note" ></ion-textarea>
+  </ion-item>
+
+    <button ion-button float-right color="marine" (click)="Dossier()">
+      Terminer
+    </button>
+
+</ion-content>

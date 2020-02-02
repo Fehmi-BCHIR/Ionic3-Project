@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="marine">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Rejoindre le Chat</strong>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-item>
+  <ion-label stacked>Choisir un Surnom</ion-label>
+  <ion-input type="text" [(ngModel)]="nickname" placeholder="Surnom"></ion-input>
+</ion-item>
+  <button ion-button full (click)="joinChat()" [disabled]="nickname === ''">Rejoindre le chat en tant que {{ nickname }}</button>
+</ion-content>
